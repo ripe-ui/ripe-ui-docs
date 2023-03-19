@@ -2,7 +2,6 @@ import { Navbar, NavbarSection, NavbarItem, SectionType } from "@ripe-ui/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Header } from "./header";
-import Head from "next/head";
 
 export default function DetailsLayout({ children, components, basics }) {
   const router = useRouter();
@@ -22,9 +21,6 @@ export default function DetailsLayout({ children, components, basics }) {
 
   return (
     <>
-      <Head>
-        <title>Ripe UI - Accessable React Apps Made Easy</title>
-      </Head>
       <Header></Header>
 
       <div style={{ display: "flex" }}>
