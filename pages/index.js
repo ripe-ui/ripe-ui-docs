@@ -7,7 +7,7 @@ export default function Home() {
   const router = useRouter();
   return (
     <div>
-      <Header />
+      <Header showMobileMenu={false} />
       <Content>
         <Hero
           title="Creating Accessable React Apps Made Easy."
