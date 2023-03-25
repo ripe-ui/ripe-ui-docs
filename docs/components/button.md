@@ -11,6 +11,14 @@ import { Button } from "@ripe-ui/react";
 
 ## Usage
 
-<iframe style="border-radius:8px; border:none; width:100%;" src="https://storybook.ripe-ui.com/iframe.html?args=&id=components-button--primary&viewMode=story"></iframe>
+```ripe
+import { Button } from "@ripe-ui/react";
 
-[View Storybook](https://google.com)
+export default function App() {
+  return (
+    <Button bg="yellow">
+      Hello World
+    </Button>
+  )
+}
+```

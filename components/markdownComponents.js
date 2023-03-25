@@ -3,6 +3,7 @@ import jsx from "react-syntax-highlighter/dist/cjs/languages/prism/jsx";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 SyntaxHighlighter.registerLanguage("jsx", jsx);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
@@ -30,18 +31,33 @@ export const MarkdownComponents = {
     };
 
     return hasLang ? (
-      <SyntaxHighlighter
-        style={syntaxTheme}
-        language={hasLang[1]}
-        PreTag="div"
-        className="codeStyle"
-        showLineNumbers={true}
-        wrapLines={hasMeta}
-        useInlineStyles={true}
-        lineProps={applyHighlights}
-      >
-        {code}
-      </SyntaxHighlighter>
+      hasLang[1] == "ripe" ? (
+        <Sandpack
+          theme="dark"
+          template="react"
+          customSetup={{
+            dependencies: {
+              "@ripe-ui/react": "latest",
+            },
+          }}
+          files={{
+            "/App.js": code,
+          }}
+        />
+      ) : (
+        <SyntaxHighlighter
+          style={syntaxTheme}
+          language={hasLang[1]}
+          PreTag="div"
+          className="codeStyle"
+          showLineNumbers={true}
+          wrapLines={hasMeta}
+          useInlineStyles={true}
+          lineProps={applyHighlights}
+        >
+          {code}
+        </SyntaxHighlighter>
+      )
     ) : (
       <code className={className} {...props} />
     );
