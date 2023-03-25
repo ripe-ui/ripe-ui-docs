@@ -4,15 +4,18 @@ import {
   getSortedPostsData,
   getSortedBasicsData,
 } from "../../lib/posts";
-import { Button } from "@ripe-ui/react";
 import DetailsLayout from "../../components/docsLayout";
+import ReactMarkdown from "react-markdown";
+import { MarkdownComponents } from "../../components/markdownComponents";
 
 export default function Post({ postData, components, basics }) {
   return (
     <DetailsLayout components={components} basics={basics}>
       <h1>{postData.name}</h1>
       <h3>{postData.description}</h3>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <ReactMarkdown components={MarkdownComponents}>
+        {postData.content}
+      </ReactMarkdown>
     </DetailsLayout>
   );
 }

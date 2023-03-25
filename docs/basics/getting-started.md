@@ -8,25 +8,25 @@ Running one of the following commands will add Ripe UI to your React Project.
 
 ### npm
 
-```
+```bash
 npm install @ripe-ui/react
 ```
 
 ### yarn
 
-```
+```bash
 yarn add @ripe-ui/react
 ```
 
 ### pnpm
 
-```
+```bash
 pnpm add @ripe-ui/react
 ```
 
 Once the package has been added you will need to add the ThemeProvider for the application, this is usually done in a file called index.js but might also be index.jsx, or index.tsx.
 
-```
+```jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { ThemeProvider } from "@ripe-ui/react";
@@ -50,7 +50,6 @@ root.render(
     </ThemeProvider>
   </React.StrictMode>
 );
-
 ```
 
 You are now ready to start building your application with any of the Ripe UI components available.

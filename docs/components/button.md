@@ -5,8 +5,8 @@ description: "The button component is used to allow users to perform an action."
 
 ## Import
 
-```
-import { Button } from "@ripe-ui/react"
+```jsx
+import { Button } from "@ripe-ui/react";
 ```
 
 ## Usage
