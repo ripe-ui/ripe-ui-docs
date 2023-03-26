@@ -1,29 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Hits, useSearchBox, useHits } from "react-instantsearch-hooks-web";
+import { useSearchBox, useHits } from "react-instantsearch-hooks-web";
 import { Input, InputSize, List } from "@ripe-ui/react";
-import { FaSearch } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-
-function Hit({ hit }) {
-  console.log(hit);
-  if (hit.type == "component") {
-    return (
-      <div>
-        <h1>{hit.title}</h1>
-        <p>{hit.description}</p>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <h1>{hit.name}</h1>
-        <p>{hit.description}</p>
-      </div>
-    );
-  }
-}
+import { useIntl } from "react-intl";
 
 export function SearchBox(props) {
+  const intl = useIntl();
+  const searchLabel = intl.formatMessage({ id: "search.label" });
+
   const router = useRouter();
   const { hits } = useHits();
   let [query, setQuery] = useState("");
@@ -42,7 +26,7 @@ export function SearchBox(props) {
     <div style={{ width: "400px" }}>
       <Input
         key="search"
-        placeholder="Search documentation..."
+        placeholder={searchLabel}
         color="white"
         onChange={(event) => setQuery(event.target.value)}
         value={query}
