@@ -6,17 +6,24 @@ import {
 } from "../../lib/posts";
 import DetailsLayout from "../../components/docsLayout";
 import ReactMarkdown from "react-markdown";
+import Head from "next/head";
 import { MarkdownComponents } from "../../components/markdownComponents";
 
 export default function Post({ data, components, basics }) {
   return (
-    <DetailsLayout components={components} basics={basics}>
-      <h1>{data.title}</h1>
-      <h3>{data.description}</h3>
-      <ReactMarkdown components={MarkdownComponents}>
-        {data.content}
-      </ReactMarkdown>
-    </DetailsLayout>
+    <>
+      <Head>
+        <title>{data.name}</title>
+        <meta name="description" content={data.description} />
+      </Head>
+      <DetailsLayout components={components} basics={basics}>
+        <h1>{data.title}</h1>
+        <h3>{data.description}</h3>
+        <ReactMarkdown components={MarkdownComponents}>
+          {data.content}
+        </ReactMarkdown>
+      </DetailsLayout>
+    </>
   );
 }
 

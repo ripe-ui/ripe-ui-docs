@@ -5,5 +5,7 @@
   "page.home.github.button": "Github",
   "sidebar.basics": "The Basics",
   "sidebar.components": "Components",
-  "search.label": "Search"
+  "search.label": "Search",
+  "page.home.title": "Ripe Plan",
+  "page.home.description": "Creating Accessable React Apps Made Easy."
 }
