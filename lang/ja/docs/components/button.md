@@ -1,5 +1,5 @@
 ---
-name: "Button"
+name: "ButtonJP"
 description: "The button component is used to allow users to perform an action."
 ---
 

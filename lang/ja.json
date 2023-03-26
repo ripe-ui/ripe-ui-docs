@@ -4,5 +4,6 @@
   "page.home.start.button": "スタートガイド",
   "page.home.github.button": "Github",
   "sidebar.basics": "発足",
-  "sidebar.components": "コンポーネント"
+  "sidebar.components": "コンポーネント",
+  "search.label": "検索"
 }

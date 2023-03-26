@@ -4,5 +4,6 @@
   "page.home.start.button": "Getting Started",
   "page.home.github.button": "Github",
   "sidebar.basics": "The Basics",
-  "sidebar.components": "Components"
+  "sidebar.components": "Components",
+  "search.label": "Search"
 }
