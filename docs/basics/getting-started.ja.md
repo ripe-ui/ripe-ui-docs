@@ -1,10 +1,10 @@
 ---
-title: "Getting Started"
+title: "スタートガイド"
 order: 1
-description: "Start by installing Ripe UI for React, with your package manager of choice."
+description: "まずは、Ripe UI for Reactをお好みのパッケージマネージャーでインストールします。"
 ---
 
-Running one of the following commands will add Ripe UI to your React Project.
+以下のいずれかのコマンドを実行することで、ReactプロジェクトにRipe UIが追加されます。
 
 ### npm
 
@@ -24,7 +24,7 @@ yarn add @ripe-ui/react
 pnpm add @ripe-ui/react
 ```
 
-Once the package has been added you will need to add the ThemeProvider for the application, this is usually done in a file called index.js but might also be index.jsx, or index.tsx.
+パッケージが追加されたら、アプリケーションのThemeProviderを追加する必要があります。これは通常、index.jsというファイルで行われますが、index.jsxやindex.tsxという場合もあります。
 
 ```jsx
 import React from "react";
@@ -52,4 +52,4 @@ root.render(
 );
 ```
 
-You are now ready to start building your application with any of the Ripe UI components available.
+これで、利用可能なRipe UIコンポーネントのいずれかを使用してアプリケーションの構築を開始する準備が整いました。
