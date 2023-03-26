@@ -20,16 +20,22 @@ export default function Post({ postData, components, basics }) {
   );
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
   const paths = getAllPostIds();
-  return {
-    paths,
-    fallback: false,
-  };
+  var localePaths = paths
+    .map((post) =>
+      locales.map((locale) => ({
+        params: { id: post.params.id },
+        locale,
+      }))
+    )
+    .flat();
+
+  return { paths: localePaths, fallback: false };
 }
 
-export async function getStaticProps({ params }) {
-  const postData = await getPostData("components", params.id);
+export async function getStaticProps({ params, locale }) {
+  const postData = await getPostData("components", params.id, locale);
   const components = await getSortedPostsData();
   const basics = await getSortedBasicsData();
   return {

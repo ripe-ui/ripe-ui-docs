@@ -9,11 +9,23 @@ import {
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Header } from "./header";
+import { useIntl } from "react-intl";
+
+const prism = require("prismjs");
+require("prismjs/components/prism-python");
 
 export default function DetailsLayout({ children, components, basics }) {
+  const intl = useIntl();
   const router = useRouter();
   const [path, setPath] = useState("");
   const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const basicsLabel = intl.formatMessage({ id: "sidebar.basics" });
+  const componentsLabel = intl.formatMessage({ id: "sidebar.components" });
+
+  useEffect(() => {
+    prism.highlightAll();
+  }, []);
 
   useEffect(() => {
     console.log(window.location.pathname);
@@ -21,9 +33,6 @@ export default function DetailsLayout({ children, components, basics }) {
   }, [router.isReady]);
 
   const getActive = (linkPath) => {
-    console.log(linkPath);
-    console.log(path);
-    console.log(linkPath == path);
     return linkPath == path;
   };
 
@@ -42,7 +51,7 @@ export default function DetailsLayout({ children, components, basics }) {
             section={SectionType.Main}
             wide
             transparent
-            label="The Basics"
+            label={basicsLabel}
           >
             {basics.map((link) => (
               <NavbarItem
@@ -55,7 +64,11 @@ export default function DetailsLayout({ children, components, basics }) {
               />
             ))}
           </NavbarSection>
-          <NavbarSection section={SectionType.Main} wide label="Components">
+          <NavbarSection
+            section={SectionType.Main}
+            wide
+            label={componentsLabel}
+          >
             {components.map((link) => (
               <NavbarItem
                 key={link.id}

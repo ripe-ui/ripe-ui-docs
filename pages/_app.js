@@ -4,6 +4,18 @@ import { ThemeProvider } from "@ripe-ui/react";
 import { Nunito } from "next/font/google";
 import algoliasearch from "algoliasearch/lite";
 import { InstantSearch } from "react-instantsearch-hooks-web";
+import { IntlProvider } from "react-intl";
+import { useRouter } from "next/router";
+
+import ja from "../lang/ja.json";
+import en from "../lang/en.json";
+
+const messages = {
+  en,
+  ja,
+};
+
+import "prismjs/themes/prism-tomorrow.css";
 
 const nunito = Nunito({ subsets: ["latin"] });
 const searchClient = algoliasearch(
@@ -12,18 +24,22 @@ const searchClient = algoliasearch(
 );
 
 const App = ({ Component, pageProps }) => {
+  const { locale } = useRouter();
+
   return (
     <InstantSearch searchClient={searchClient} indexName="ripe_ui">
-      <ThemeProvider
-        theme={{
-          primaryColor: "rgba(243, 220, 81, 1)",
-          secondaryColor: "red",
-          fontFamily: nunito.style.fontFamily,
-          bg: "#333333",
-        }}
-      >
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <IntlProvider locale={locale} messages={messages[locale]}>
+        <ThemeProvider
+          theme={{
+            primaryColor: "rgba(243, 220, 81, 1)",
+            secondaryColor: "red",
+            fontFamily: nunito.style.fontFamily,
+            bg: "#333333",
+          }}
+        >
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </IntlProvider>
     </InstantSearch>
   );
 };
