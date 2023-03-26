@@ -5,5 +5,7 @@
   "page.home.github.button": "Github",
   "sidebar.basics": "発足",
   "sidebar.components": "コンポーネント",
-  "search.label": "検索"
+  "search.label": "検索",
+  "page.home.title": "Ripe Plan",
+  "page.home.description": "アクセシブルなReactアプリを簡単に作る。"
 }
